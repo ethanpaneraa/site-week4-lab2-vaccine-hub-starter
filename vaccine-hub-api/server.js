@@ -4,6 +4,8 @@ const cors = require("cors");
 const { NotFoundError, BadRequestError } = require("./utils/errors")
 const AuthorizationRoutes = require("./routes/auth")
 
+const { PORT } = require("./config"); 
+ 
 const app = express(); 
 
 app.use(express.json()); 
@@ -22,8 +24,6 @@ app.use((err, req, res, next) => {
         error: {message, status}
     })
 }); 
-
-const PORT = process.env.PORT || 3001
 
 app.listen(PORT, () => {
     console.log(`🚀  Server running on: http://localhost:${PORT}`)
