@@ -11,7 +11,7 @@ function getDatabaseURI() {
     const dbPort = process.env.DATABASE_PORT || 5433; 
     const dbName = process.env.DATABASE_NAME || "vaccine_hub"; 
 
-    return process.env.DATABASE_URI || `postgressql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`;
+    return process.env.DATABASE_URI || `postgressql://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbName}`;
 }
 
 module.exports = getDatabaseURI; 

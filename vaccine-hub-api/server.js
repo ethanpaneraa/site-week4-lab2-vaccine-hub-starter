@@ -4,13 +4,15 @@ const cors = require("cors");
 const { NotFoundError, BadRequestError } = require("./utils/errors")
 const AuthorizationRoutes = require("./routes/auth")
 
-const { PORT } = require("./config"); 
+const PORT = require("./config"); 
  
 const app = express(); 
 
 app.use(express.json()); 
 
 app.use(morgan("tiny")); 
+
+app.use("/auth", AuthorizationRoutes); 
 
 app.use((req, res ,next) => {
     return next(new NotFoundError()); 
