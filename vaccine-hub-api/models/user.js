@@ -23,7 +23,6 @@ class User {
         //pick first result
         const user = result.rows[0];
 
-        // return user provided by DB
         return user
     }
 
