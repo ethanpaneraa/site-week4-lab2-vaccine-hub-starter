@@ -17,11 +17,6 @@ class User {
         }
     }
 
-    static async login(credentials) {
-
-        throw new UnauthorizedError("Invalid email/password combo"); 
-    }
-
     static async fetchUserByEmail(email) {
 
         if (!email) throw new BadRequestError("No email provided"); 
@@ -73,7 +68,7 @@ class User {
             [lowerCasedUserEmail, hashedUserPassword, credentials.firstName, credentials.lastName, credentials.location, credentials.data]
         );
 
-        const user = result.rows[0]; 
+        const user = newUser.rows[0]; 
 
         return this.makePublicUser(user); 
         
